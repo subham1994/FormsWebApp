@@ -1,0 +1,66 @@
+<div class="card-panel">
+
+    <h5 class="right-align">Billing Information</h5>
+
+    <form name="billingInfoForm">
+
+        <div class="input-field">
+            <select name="card_name" ng-model="user.card_name" required>
+                <option value="" disabled selected>Card Type</option>
+                <option value="visa">Visa</option>
+                <option value="amex"><i class="amex icon"></i>American Express</option>
+                <option value="discover"><i class="discover icon"></i>Discover</option>
+            </select>
+        </div>
+
+        <div class="input-field">
+            <label for="id_number">card number</label>
+            <input id="id_number" name="card_number" ng-minlength="16" ng-maxlength="16"
+                     ng-model="user.card_number" type="text" required>
+        </div>
+
+        <div class="input-field">
+            <select name="card_expire_month" ng-model="user.card_expire_month" required>
+                <option value="" disabled selected>Month</option>
+                <option value="Jan">January</option>
+                <option value="Feb">February</option>
+                <option value="Mar">March</option>
+                <option value="Apr">April</option>
+                <option value="May">May</option>
+                <option value="Jun">June</option>
+                <option value="Jul">July</option>
+                <option value="Aug">August</option>
+                <option value="Sep">September</option>
+                <option value="Oct">October</option>
+                <option value="Nov">November</option>
+                <option value="Dec">December</option>
+            </select>
+        </div>
+
+        <div class="row">
+            <div class="col l6 m6 s12 input-field">
+                <label for="id_cvv">cvv</label>
+                <input id="id_cvv" name="card_number" ng-minlength="16" ng-maxlength="16"
+                         ng-model="user.card_cvv" type="text" required>
+            </div>
+            <div class="col l6 m6 s12 input-field">
+                <label for="id_year">Year</label>
+                <input name="card_expire_year" ng-minlength="4" ng-maxlength="4"
+                         id="id_year" ng-model="user.card_expire_year" type="text" required>
+            </div>
+        </div>
+
+        <div class="right-align">
+            <input ng-disabled="billingInfoForm.$invalid" class="waves-effect waves-light btn blue"
+                     ng-click="update(user)" value="save and continue" type="submit">
+        </div>
+
+    </form>
+
+</div>
+
+<script>
+    $(document).ready(function() {
+        $('select').material_select();
+    });
+</script>

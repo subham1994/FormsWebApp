@@ -1,0 +1,63 @@
+<div class="card-panel">
+
+    <h5 class="right-align">Shipping Information</h5>
+
+    <form name="shippingInfoForm" novalidate>
+
+        <div class="input-field">
+            <label for="id_address">card number</label>
+            <input id="id_address" name="address" ng-model="user.address" type="text" required>
+        </div>
+
+        <div class="row">
+            <div class="col l6 m6 s12 input-field">
+                <label for="id_landmark">cvv</label>
+                <input id="id_landmark" name="landmark" ng-model="user.landmark" type="text" required>
+            </div>
+            <div class="col l6 m6 s12 input-field">
+                <label for="id_postal">Year</label>
+                <input id="id_postal" name="postal" ng-minlength="6" ng-maxlength="6"
+                         ng-model="user.postal" type="text" required>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col l6 m6 s12 input-field">
+                <select name="state" ng-model="user.state" required>
+                    <option value="" disabled selected>State</option>
+                    <option value="in">New Delhi</option>
+                    <option value="au">Maharashtra</option>
+                    <option value="us">Gujarat</option>
+                    <option value="uk">Karnataka</option>
+                </select>
+            </div>
+            <div class="col l6 m6 s12 input-field">
+                <select name="country" ng-model="user.country" required>
+                    <option value="" disabled selected>Country</option>
+                    <option value="in">India</option>
+                    <option value="au">Australia</option>
+                    <option value="us">United States of America</option>
+                    <option value="uk">United Kingdom</option>
+                </select>
+            </div>
+        </div>
+
+        <p>
+            <input type="checkbox" class="filled-in" id="filled-in-box"/>
+            <label for="filled-in-box"><b>save this as my permanent address also !</b></label>
+        </p>
+
+        <div class="right-align">
+            <input ng-disabled="shippingInfoForm.$invalid" class="waves-effect waves-light btn blue"
+                   ng-click="update(user)" value="save and continue" type="submit">
+        </div>
+
+    </form>
+
+</div>
+
+<script>
+    $(document).ready(function() {
+        $('select').material_select();
+    });
+</script>
