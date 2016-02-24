@@ -23,11 +23,27 @@
             <div class="row">
 
                 <div class="col l3 m3 s12">
-                    <ul class="section table-of-contents">
-                        <li><a href="#!" class="collection-item">Purchase Order</a></li>
-                        <li><a href="#/billing" class="collection-item active">Billing</a></li>
-                        <li><a href="#/shipping" class="collection-item">Shipping</a></li>
-                        <li><a href="#/preview" class="collection-item">Preview</a></li>
+                    <ul class="section table-of-contents" ng-controller="asideCtrl">
+                        <li>
+                            <a href="#/" class="collection-item" ng-class=" {active: tab == 1}" ng-click="tab = 1">
+                                Purchase Order
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#/billing" class="collection-item" ng-class=" {active: tab == 2}" ng-click="tab = 2">
+                                Billing
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#/shipping" class="collection-item" ng-class=" {active: tab == 3}" ng-click="tab = 3">
+                                Shipping
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#/preview" class="collection-item" ng-class=" {active: tab == 4}" ng-click="tab = 4">
+                                Preview
+                            </a>
+                        </li>
                     </ul>
                 </div>
 

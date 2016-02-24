@@ -1,15 +1,7 @@
 
 (function() {
-    var personalInfoController = function($scope, $route, progressInfoFactory) {
-        var forms = {
-            name: "first_name",
-            date: "date",
-            gender: ["debtor", "Male", "Female"]
-        };
-        $scope.users = [forms];
-        $scope.hasFormBeenEdited = false;
-        $scope.order = {};
-        $scope.completedOrders = [];
+    var personalInfoController = function($scope, $location, progressInfoFactory) {
+        $scope.user = {};
         $scope.data = progressInfoFactory.getSteps();
 
 
@@ -30,14 +22,13 @@
             // push the object into progressInfoFactory's array
             progressInfoFactory.addStep({name: 'Personal Info', user: user});
 
-            $scope.completedOrders.push($scope.user);
-            $scope.user = {};
-            this.personalInfoForm.$setPristine(true);
+            // go to next step
+            $location.path("/billing");
         };
     };
 
     // inject function parameters to avoid script breakdown during minification
-    personalInfoController.$inject = ['$scope', '$route', 'progressInfoFactory'];
+    personalInfoController.$inject = ['$scope', '$location', 'progressInfoFactory'];
 
     // Register controller to your app
     angular.module('FormsApp').controller("purchaseOrder", personalInfoController);

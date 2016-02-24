@@ -1,4 +1,4 @@
-<div class="card-panel" ng-show="steps.length < 1">
+<div class="card-panel" ng-show="completedSteps.length < 1">
 
     <h6><strong>No data to show !!</strong></h6>
     <div class="right-align">
@@ -12,12 +12,9 @@
         <div class="card preview" ng-show="steps.name === 'Personal Info'">
             <div class="card-content">
                 <h5 class="right-align">{{ steps.name }}</h5>
-                <p><b>Name</b> : {{ steps.user.first_name + " " + steps.user.last_name }}</p>
-                <p><b>E-mail</b> : {{ steps.user.email }}</p>
+                <p><b>Name</b> : {{ steps.user.name }}</p>
+                <p><b>Date</b> : {{ steps.user.date }}</p>
                 <p><b>Gender</b> : {{ steps.user.gender }}</p>
-                <p><b>E-mail subscription</b> :
-                    <span ng-if="steps.user.email_subscription">Yes</span> <span ng-if="!steps.user.email_subscription">No</span>
-                </p>
             </div>
             <div class="card-action">
                 <a href="#/">Edit</a>

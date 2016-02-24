@@ -1,0 +1,44 @@
+<div class="card-panel">
+
+    <h5 class="right-align">Purchase Order</h5>
+
+    <form name="purchaseForm">
+
+        <div class="row">
+            <div class="col l6 m6 s12 input-field">
+                <label for="id_name">First Name</label>
+                <input id="id_name" name="name" type="text" ng-model="user.name" required/>
+            </div>
+            <div class="col l6 m6 s12 input-field">
+                <label for="id_date">Date</label>
+                <input id="id_date" name="date" type="text" class="datepicker" ng-model="user.date" required/>
+            </div>
+        </div>
+
+        <div class="input-field">
+            <select name="gender" ng-model="user.gender" required>
+                <option value="" disabled selected>Gender</option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+            </select>
+        </div>
+
+        <div class="right-align">
+            <input ng-disabled="purchaseForm.$invalid" class="waves-effect waves-light btn blue"
+                     ng-click="update(user)" value="save and continue" type="submit">
+        </div>
+
+    </form>
+
+</div>
+
+<script>
+    $(document).ready(function() {
+        $('select').material_select();
+        $('.datepicker').pickadate({
+            selectMonths: true, // Creates a dropdown to control month
+            selectYears: 15, // Creates a dropdown of 15 years to control year
+            format: 'dd-mm-yyyy'
+        });
+    });
+</script>
