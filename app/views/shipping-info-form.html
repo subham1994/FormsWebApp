@@ -5,17 +5,17 @@
     <form name="shippingInfoForm" novalidate>
 
         <div class="input-field">
-            <label for="id_address">card number</label>
+            <label for="id_address">Address</label>
             <input id="id_address" name="address" ng-model="user.address" type="text" required>
         </div>
 
         <div class="row">
             <div class="col l6 m6 s12 input-field">
-                <label for="id_landmark">cvv</label>
+                <label for="id_landmark">landmark</label>
                 <input id="id_landmark" name="landmark" ng-model="user.landmark" type="text" required>
             </div>
             <div class="col l6 m6 s12 input-field">
-                <label for="id_postal">Year</label>
+                <label for="id_postal">Postal code</label>
                 <input id="id_postal" name="postal" ng-minlength="6" ng-maxlength="6"
                          ng-model="user.postal" type="text" required>
             </div>
@@ -43,7 +43,7 @@
         </div>
 
         <p>
-            <input type="checkbox" class="filled-in" id="filled-in-box"/>
+            <input type="checkbox" class="filled-in" id="filled-in-box" ng-model="user.perm_addr_check"/>
             <label for="filled-in-box"><b>save this as my permanent address also !</b></label>
         </p>
 

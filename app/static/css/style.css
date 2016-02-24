@@ -4,12 +4,6 @@
     }
 }
 
-#aside-navigation {
-    border-radius: 0%;
-    border: 1px solid #4A88CB;
-    box-shadow: 0px 0px 4px #4A88CB;
-}
-
 #body-container {
     margin-top: 50px;
 }
@@ -33,6 +27,10 @@
     margin: 0%;
 }
 
+.card.preview h5 {
+    color: #2196F3 !important;
+}
+
 .table-of-contents a.active {
     border-left: 2px solid #4A88CB
 }
@@ -51,6 +49,14 @@
 
 .card .card-action a:not(.btn):not(.btn-large):not(.btn-floating):hover {
     color: #2196F3;
+}
+
+.card.preview .card-action a:not(.btn):not(.btn-large):not(.btn-floating) {
+    color: #F44336 !important;
+}
+
+.card.preview .card-action a:not(.btn):not(.btn-large):not(.btn-floating):hover {
+    color: #e53935;
 }
 
 .wrap {
