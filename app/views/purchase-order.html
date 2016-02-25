@@ -11,8 +11,8 @@
             </div>
             <div class="col l6 m6 s12 input-field">
                 <label for="id_date">Date</label>
-                <input input-date id="id_date" name="{{obj.date}}" type="text" class="datepicker"
-                         ng-model="user.date" format="dd/mm/yyyy" required/>
+                <input input-date id="id_date" ng-model="user.date" name="{{obj.date}}" type="text"
+                         container="body" select-years="15" required/>
             </div>
         </div>
 
