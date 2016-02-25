@@ -6,7 +6,7 @@
             name: 'name',
             date: 'date',
             gender: ['male', 'female']
-        }]
+        }];
         $scope.data = progressInfoFactory.getSteps();
 
 

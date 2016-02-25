@@ -11,7 +11,8 @@
             </div>
             <div class="col l6 m6 s12 input-field">
                 <label for="id_date">Date</label>
-                <input input-date id="id_date" name="date" type="text" class="datepicker" ng-model="user.date" required/>
+                <input input-date id="id_date" name="date" type="text" class="datepicker"
+                         format="dd-mm-yyyy" ng-model="user.date" required/>
             </div>
         </div>
 
@@ -29,4 +30,47 @@
 
     </form>
 
+</div>
+
+
+<div class="preloader-wrapper big active" ng-show="loader">
+    <div class="spinner-layer spinner-blue">
+        <div class="circle-clipper left">
+            <div class="circle"></div>
+        </div><div class="gap-patch">
+        <div class="circle"></div>
+    </div><div class="circle-clipper right">
+        <div class="circle"></div>
+    </div>
+    </div>
+
+    <div class="spinner-layer spinner-red">
+        <div class="circle-clipper left">
+            <div class="circle"></div>
+        </div><div class="gap-patch">
+        <div class="circle"></div>
+    </div><div class="circle-clipper right">
+        <div class="circle"></div>
+    </div>
+    </div>
+
+    <div class="spinner-layer spinner-yellow">
+        <div class="circle-clipper left">
+            <div class="circle"></div>
+        </div><div class="gap-patch">
+        <div class="circle"></div>
+    </div><div class="circle-clipper right">
+        <div class="circle"></div>
+    </div>
+    </div>
+
+    <div class="spinner-layer spinner-green">
+        <div class="circle-clipper left">
+            <div class="circle"></div>
+        </div><div class="gap-patch">
+        <div class="circle"></div>
+    </div><div class="circle-clipper right">
+        <div class="circle"></div>
+    </div>
+    </div>
 </div>
