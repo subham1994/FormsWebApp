@@ -2,6 +2,11 @@
 (function() {
     var personalInfoController = function($scope, $location, progressInfoFactory) {
         $scope.user = {};
+        $scope.users = [{
+            name: 'name',
+            date: 'date',
+            gender: ['male', 'female']
+        }]
         $scope.data = progressInfoFactory.getSteps();
 
 

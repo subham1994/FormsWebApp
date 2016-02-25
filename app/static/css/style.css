@@ -17,11 +17,6 @@
     background-color: #2196F3 !important;
 }
 
-.card-panel {
-    border: 1px solid #4A88CB;
-    box-shadow: 0px 0px 4px #4A88CB;
-}
-
 .card-panel > h5 {
     color: #2196F3 !important;
     margin: 0%;
