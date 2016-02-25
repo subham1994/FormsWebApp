@@ -3,18 +3,26 @@
 
     var asideCtrl = function($scope, progressInfoFactory) {
 
-        $scope.tab = 1;
-        $scope.tabs = progressInfoFactory.getPath();
+        function initScope() {
+            $scope.tab = 1;
+            $scope.tabs = progressInfoFactory.getPath();
 
-        if ($scope.tabs === '/billing') {
-            $scope.tab = 2;
+            if ($scope.tabs === '/billing') {
+                $scope.tab = 2;
+            }
+            if ($scope.tabs === '/shipping') {
+                $scope.tab = 3;
+            }
+            if ($scope.tabs === '/preview') {
+                $scope.tab = 4;
+            }
+            console.log($scope.tabs);
         }
-        if ($scope.tabs === '/shipping') {
-            $scope.tab = 3;
-        }
-        if ($scope.tabs === '/preview') {
-            $scope.tab = 4;
-        }
+
+        initScope();
+
+        $scope.$on('$routeChangeUpdate', initScope);
+        $scope.$on('$routeChangeSuccess', initScope);
     };
 
     // inject function parameters to avoid script breakdown during minification

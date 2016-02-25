@@ -6,6 +6,7 @@
         <title>Startup dummy website</title>
         <link rel="stylesheet" href="static/css/materialize.min.css" type="text/css">
         <link rel="stylesheet" href="static/css/style.css" type="text/css">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     </head>
 
     <body>
@@ -25,22 +26,22 @@
                 <div class="col l3 m3 s12">
                     <ul class="section table-of-contents" ng-controller="asideCtrl">
                         <li>
-                            <a href="#/" class="collection-item" ng-class=" {active: tab == 1}" ng-click="tab = 1">
+                            <a href="#/" class="collection-item" ng-class=" {active: tab === 1}" ng-click="tab = 1">
                                 Purchase Order
                             </a>
                         </li>
                         <li>
-                            <a href="#/billing" class="collection-item" ng-class=" {active: tab == 2}" ng-click="tab = 2">
+                            <a href="#/billing" class="collection-item" ng-class=" {active: tab === 2}" ng-click="tab = 2">
                                 Billing
                             </a>
                         </li>
                         <li>
-                            <a href="#/shipping" class="collection-item" ng-class=" {active: tab == 3}" ng-click="tab = 3">
+                            <a href="#/shipping" class="collection-item" ng-class=" {active: tab === 3}" ng-click="tab = 3">
                                 Shipping
                             </a>
                         </li>
                         <li>
-                            <a href="#/preview" class="collection-item" ng-class=" {active: tab == 4}" ng-click="tab = 4">
+                            <a href="#/preview" class="collection-item" ng-class=" {active: tab === 4}" ng-click="tab = 4">
                                 Preview
                             </a>
                         </li>
