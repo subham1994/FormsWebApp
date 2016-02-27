@@ -52,7 +52,8 @@
 
             $scope.total += (parseInt(formObj.user.item.rate) * parseInt(formObj.user.item_unit) * parseInt(formObj.user.item_qty));
             $scope.user.subFormDetails.push(formObj.user);
-            $scope.user.total = total;
+            $scope.user.total = $scope.total;
+            console.log(JSON.stringify($scope.user));
         };
     };
 
