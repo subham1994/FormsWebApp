@@ -5,7 +5,8 @@
         $scope.debtor = [
             {id: 1, name: 'Arpan Ahuja', godown: ['Patna', 'Delhi', 'Mumbai']},
             {id: 2, name: 'Nishant Gaurav', godown: ['Bangalore', 'Hyderabad', 'Chennai']},
-            {id: 3, name: 'Subham Gaurav', godown: ['Nagpur', 'Bhopal', 'Kolkata']}
+            {id: 3, name: 'Subham Gaurav', godown: ['Nagpur', 'Bhopal', 'Kolkata']},
+            {id: 4, name: 'Keshav Ratan', godown: ['Ranchi', 'Patna', 'Mumbai']}
         ];
         var subForm = {
             itemName: [
