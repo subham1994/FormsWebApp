@@ -16,7 +16,6 @@
             if ($scope.tabs === '/preview') {
                 $scope.tab = 4;
             }
-            console.log($scope.tabs);
         }
 
         initScope();

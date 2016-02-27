@@ -1,34 +1,58 @@
 
 (function() {
     var personalInfoController = function($scope, $location, progressInfoFactory) {
+
+        $scope.debtor = [
+            {id: 1, name: 'Arpan Ahuja', godown: ['Patna', 'Delhi', 'Mumbai']},
+            {id: 2, name: 'Nishant Gaurav', godown: ['Bangalore', 'Hyderabad', 'Chennai']},
+            {id: 3, name: 'Subham Gaurav', godown: ['Nagpur', 'Bhopal', 'Kolkata']}
+        ];
+        var subForm = {
+            itemName: [
+                {id: 1, name: 'Dummy Item 1', rate: 200},
+                {id: 2, name: 'Dummy Item 2', rate: 500},
+                {id: 3, name: 'Dummy Item 3', rate: 1500}
+            ],
+            isEditable: true,
+            isSubmitted: false
+        };
+
         $scope.user = {};
-        $scope.users = [{
-            name: 'name',
-            date: 'date',
-            gender: ['male', 'female']
-        }];
-        $scope.data = progressInfoFactory.getSteps();
+        $scope.user.subFormDetails = [];
+        $scope.total = 0;
+        $scope.subForms = [{form: subForm, user: {}, formNo: 0}];
 
-
-        //if user has previously entered any data, bind that data to the form model
-        for (var i = 0, len = $scope.data.length; i < len; i++) {
-            if ($scope.data[i].name === 'Personal Info') {
-                $scope.user = $scope.data[i].user;
-            }
-        }
-
-        $scope.update = function(user) {
-            // check for previous submissions for this step, if it exists then remove it
-            for(var i = 0, len = $scope.data.length; i < len; i++) {
-                if($scope.data[i].name === 'Personal Info') {
-                    $scope.data.splice(i, 1);
+        var getRequiredForm = function(formNo) {
+            for(var i= 0, len=$scope.subForms.length; i<len; i++) {
+                if($scope.subForms[i].formNo === formNo) {
+                    return $scope.subForms[i];
                 }
             }
-            // push the object into progressInfoFactory's array
-            progressInfoFactory.addStep({name: 'Personal Info', user: user});
+        };
 
-            // go to next step
-            $location.path("/billing");
+        $scope.maintainPurchase = function(formNo) {
+            var formObj = getRequiredForm(formNo);
+
+            formObj.form.isEditable = false;
+            formObj.form.isSubmitted = true;
+
+            $scope.subForms.push({
+                    form: {
+                        itemName: [
+                            {id: 1, name: 'Dummy Item 1', rate: 200},
+                            {id: 2, name: 'Dummy Item 2', rate: 500},
+                            {id: 3, name: 'Dummy Item 3', rate: 1500}
+                        ],
+                        isEditable: true,
+                        isSubmitted: false
+                    },
+                    user: {},
+                    formNo: ++formNo
+            });
+
+            $scope.total += (parseInt(formObj.user.item.rate) * parseInt(formObj.user.item_unit) * parseInt(formObj.user.item_qty));
+            $scope.user.subFormDetails.push(formObj.user);
+            $scope.user.total = total;
         };
     };
 

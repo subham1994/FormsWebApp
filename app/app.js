@@ -1,6 +1,6 @@
 
 (function() {
-    var app = angular.module('FormsApp', ['ngRoute', 'ui.materialize']);
+    var app = angular.module('FormsApp', ['ngRoute', 'ui.materialize', 'fcsa-number']);
 
     app.config(function($routeProvider) {
         $routeProvider
