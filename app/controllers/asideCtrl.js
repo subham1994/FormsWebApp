@@ -13,7 +13,7 @@
             if ($scope.tabs === '/shipping') {
                 $scope.tab = 3;
             }
-            if ($scope.tabs === '/preview') {
+            if ($scope.tabs === '/payment') {
                 $scope.tab = 4;
             }
         }

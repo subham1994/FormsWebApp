@@ -1,6 +1,6 @@
 
 (function() {
-    var personalInfoController = function($scope, $location, progressInfoFactory) {
+    var personalInfoController = function($scope) {
 
         $scope.debtor = [
             {id: 1, name: 'Arpan Ahuja', godown: ['Patna', 'Delhi', 'Mumbai']},
@@ -58,7 +58,7 @@
     };
 
     // inject function parameters to avoid script breakdown during minification
-    personalInfoController.$inject = ['$scope', '$location', 'progressInfoFactory'];
+    personalInfoController.$inject = ['$scope'];
 
     // Register controller to your app
     angular.module('FormsApp').controller("purchaseOrder", personalInfoController);

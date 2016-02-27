@@ -12,13 +12,13 @@
                 controller: 'billingInfoController',
                 templateUrl: 'views/billing-info-form.html'
             })
+            .when('/payment', {
+                controller: 'printVoucherController',
+                templateUrl: 'views/paymentVoucher.html'
+            })
             .when('/shipping', {
                 controller: 'shippingInfoController',
                 templateUrl: 'views/shipping-info-form.html'
-            })
-            .when('/preview', {
-                controller: 'progressController',
-                templateUrl: 'views/progress.html'
             })
             .otherwise( {redirectTo: '/'} );
     });
