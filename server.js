@@ -4,6 +4,6 @@ var PORT = process.env.PORT || 3000;
 
 app.use(express.static('app'));
 
-app.listen(PORT, function() { // start the server
+app.listen(PORT, function() {
     console.log('Express listening on port 3000');
 });
