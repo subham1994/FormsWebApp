@@ -4,7 +4,7 @@
 
 
 (function() {
-    var printVoucher = function($scope) {
+    var paymentVoucher = function($scope, $location) {
         $scope.search = {};
         $scope.user = {};
         $scope.searchResults = [
@@ -24,12 +24,16 @@
             $scope.showResults = true;
         };
 
+        $scope.submitPurchase = function(user) {
+            $location.path("/confirm");
+        }
+
     };
 
     // inject function parameters to avoid script breakdown during minification
-    printVoucher.$inject = ['$scope'];
+    paymentVoucher.$inject = ['$scope', '$location'];
 
     // Register controller to your app
-    angular.module('FormsApp').controller("printVoucherController", printVoucher);
+    angular.module('FormsApp').controller("paymentVoucherController", paymentVoucher);
 
 }());

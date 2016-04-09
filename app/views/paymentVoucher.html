@@ -1,149 +1,149 @@
-<div class="card-panel">
-    <h5 class="right-align">Search</h5>
+<div class="row">
+    <div class="col l7">
+        <h5 class="blue-text">Search</h5>
+        <div class="card-panel">
+            <form name="searchForm">
 
-    <form name="searchForm">
+                <div class="row">
+                    <div class="input-field col l4">
+                        <label for="id_ref">REF NO</label>
+                        <input id="id_ref" name="search_ref" ng-model="search.ref_no" type="text" required>
+                    </div>
 
-        <div class="row">
-            <div class="input-field col l4">
-                <label for="id_ref">REF NO</label>
-                <input id="id_ref" name="search_ref" ng-model="search.ref_no" type="text" required>
-            </div>
+                    <div class="input-field col l4">
+                        <select name="search_vendor" ng-options="option for option in options"
+                                material-select watch ng-model="search.vendor" required>
+                            <option value="" disabled selected>Vendor</option>
+                        </select>
+                    </div>
 
-            <div class="input-field col l4">
-                <select name="search_vendor" ng-options="option for option in options"
-                        material-select watch ng-model="search.vendor" required>
-                    <option value="" disabled selected>Vendor</option>
-                </select>
-            </div>
+                    <div class="input-field col l4">
+                        <select name="item" ng-options="option for option in options"
+                                material-select watch ng-model="search.Item" required>
+                            <option value="" disabled selected>Item</option>
+                        </select>
+                    </div>
+                </div>
 
-            <div class="input-field col l4">
-                <select name="item" ng-options="option for option in options"
-                        material-select watch ng-model="search.Item" required>
-                    <option value="" disabled selected>Item</option>
-                </select>
-            </div>
+                <div class="row">
+                    <div class="input-field col l3">
+                        <label for="id_date_1">DATE (From)</label>
+                        <input id="id_date_1" name="search_date_1" input-date=""
+                                 ng-model="search.date_1" type="text" required>
+                    </div>
+                    <div class="input-field col l3">
+                        <label for="id_date_2">DATE (To)</label>
+                        <input id="id_date_2" name="search_date_2" input-date=""
+                                 ng-model="search.date_2" type="text" required>
+                    </div>
+
+                    <div class="input-field col l3">
+                        <label for="id_min">AMOUNT (MIN)</label>
+                        <input id="id_min" name="search_min" ng-model="search.min"
+                                 fcsa-number="" type="text" required>
+                    </div>
+                    <div class="input-field col l3">
+                        <label for="id_max">AMOUNT (MAX)</label>
+                        <input id="id_max" name="search_max" ng-model="search.max"
+                                 fcsa-number="" type="text" required>
+                    </div>
+                </div>
+
+                <div class="right-align">
+                    <input ng-disabled="searchForm.$invalid" class="waves-effect waves-light btn blue"
+                           ng-click="searchResult(search)" value="search" type="submit">
+                </div>
+
+            </form>
         </div>
 
-        <div class="row">
-            <div class="input-field col l3">
-                <label for="id_date_1">DATE (From)</label>
-                <input id="id_date_1" name="search_date_1" input-date=""
-                         ng-model="search.date_1" type="text" required>
-            </div>
-            <div class="input-field col l3">
-                <label for="id_date_2">DATE (To)</label>
-                <input id="id_date_2" name="search_date_2" input-date=""
-                         ng-model="search.date_2" type="text" required>
+        <h5 class="blue-text" ng-show="showResults">Search result</h5>
+        <div class="card-panel" ng-show="showResults">
+            <table>
+                <thead>
+                        <th></th>
+                        <th>REF NO</th>
+                        <th>VENDOR</th>
+                        <th>ITEMS</th>
+                        <th>QTY</th>
+                        <th>TOTAL AMT</th>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="result in searchResults">
+                        <td>
+                            <input type="checkbox" class="filled-in" id="filled-in-box-{{result.id}}" ng-model="result.is_checked">
+                            <label for="filled-in-box-{{result.id}}"></label>
+                        </td>
+                        <td>{{ result.ref_no }}</td>
+                        <td>{{ result.vendor }}</td>
+                        <td>{{ result.items }}</td>
+                        <td>{{ result.qty }}</td>
+                        <td>{{ result.tot_amt }}</td>
+                    </tr>
+                </tbody>
+
+            </table>
+
+            <div class="right-align">
+                <input ng-disabled="" class="waves-effect waves-light btn blue"
+                         ng-click="showPaymentForm()" value="Create Payment Voucher" type="submit">
             </div>
 
-            <div class="input-field col l3">
-                <label for="id_min">AMOUNT (MIN)</label>
-                <input id="id_min" name="search_min" ng-model="search.min"
-                         fcsa-number="" type="text" required>
-            </div>
-            <div class="input-field col l3">
-                <label for="id_max">AMOUNT (MAX)</label>
-                <input id="id_max" name="search_max" ng-model="search.max"
-                         fcsa-number="" type="text" required>
-            </div>
         </div>
 
-        <div class="right-align">
-            <input ng-disabled="searchForm.$invalid" class="waves-effect waves-light btn blue"
-                     ng-click="searchResult(search)" value="search" type="submit">
+        <div class="card-panel" ng-show="showPayment">
+            <h5 class="right-align">Payment voucher</h5>
+
+            <form name="paymentForm">
+                <div class="row">
+
+                    <div class="input-field col l4">
+                        <label for="id_ref_2">REF NO</label>
+                        <input id="id_ref_2" name="ref_no" ng-model="user.ref" type="text" required>
+                    </div>
+
+                    <div class="input-field col l4">
+                        <select name="vendor" ng-options="option for option in options"
+                                material-select watch ng-model="user.vendor" required>
+                            <option value="" disabled selected>Vendor</option>
+                        </select>
+                    </div>
+
+                    <div class="input-field col l4">
+                        <label for="id_date">Date</label>
+                        <input id="id_date" input-date="" name="date" ng-model="user.date" type="text" required>
+                    </div>
+
+                </div>
+
+                <div class="row">
+
+                    <div class="input-field col l6">
+                        <select name="payment_op" ng-options="option for option in options"
+                                   material-select watch ng-model="search.payment_op" required>
+                            <option value="" disabled selected>Payment options</option>
+                        </select>
+                    </div>
+
+                    <div class="input-field col l6">
+                        <label for="id_user_amount">Amount</label>
+                        <input id="id_user_amount" name="vendor" fcsa-number="" ng-model="user.amount" type="text" required>
+                    </div>
+
+                </div>
+
+                <div class="right-align">
+                    <input ng-disabled="paymentForm.$invalid" class="waves-effect waves-light btn blue"
+                           ng-click="submitPurchase(user)" value="submit" type="submit">
+                </div>
+            </form>
         </div>
-
-    </form>
-</div>
-
-<div class="card-panel" ng-show="showResults">
-    <h5 class="right-align">Search result</h5>
-    <table>
-        <thead>
-                <th></th>
-                <th>REF NO</th>
-                <th>VENDOR</th>
-                <th>ITEMS</th>
-                <th>QTY</th>
-                <th>TOTAL AMT</th>
-        </thead>
-        <tbody>
-            <tr ng-repeat="result in searchResults">
-                <td>
-                    <input type="checkbox" class="filled-in" id="filled-in-box-{{result.id}}" ng-model="result.is_checked">
-                    <label for="filled-in-box-{{result.id}}"></label>
-                </td>
-                <td>{{ result.ref_no }}</td>
-                <td>{{ result.vendor }}</td>
-                <td>{{ result.items }}</td>
-                <td>{{ result.qty }}</td>
-                <td>{{ result.tot_amt }}</td>
-            </tr>
-        </tbody>
-
-    </table>
-
-    <div class="right-align">
-        <input ng-disabled="" class="waves-effect waves-light btn blue"
-                 ng-click="showPaymentForm()" value="search" type="submit">
     </div>
 
-</div>
-
-<div class="card-panel" ng-show="showPayment">
-    <h5 class="right-align">Payment voucher</h5>
-
-    <form name="paymentForm">
-        <div class="row">
-
-            <div class="input-field col l4">
-                <label for="id_ref_2">REF NO</label>
-                <input id="id_ref_2" name="ref_no" ng-model="user.ref" type="text" required>
-            </div>
-
-            <div class="input-field col l4">
-                <select name="vendor" ng-options="option for option in options"
-                        material-select watch ng-model="user.vendor" required>
-                    <option value="" disabled selected>Vendor</option>
-                </select>
-            </div>
-
-            <div class="input-field col l4">
-                <label for="id_date">Date</label>
-                <input id="id_date" input-date="" name="date" ng-model="user.date" type="text" required>
-            </div>
-
+    <div class="col l5">
+        <h5 class="blue-text">Summary</h5>
+        <div class="card-panel">
+            <b>same as previous...</b>
         </div>
-
-        <div class="row">
-
-            <div class="input-field col l6">
-                <select name="payment_op" ng-options="option for option in options"
-                           material-select watch ng-model="search.payment_op" required>
-                    <option value="" disabled selected>Payment options</option>
-                </select>
-            </div>
-
-            <div class="input-field col l6">
-                <label for="id_user_amount">Amount</label>
-                <input id="id_user_amount" name="vendor" fcsa-number="" ng-model="user.amount" type="text" required>
-            </div>
-
-        </div>
-
-        <div class="right-align">
-            <input ng-disabled="paymentForm.$invalid" class="waves-effect waves-light btn blue"
-                   ng-click="submitPurchase(user)" value="submit" type="submit">
-        </div>
-    </form>
-</div>
-
-<div class="card-panel">
-    <h5 class="right-align">Summary</h5>
-    <b>same as previous...</b>
-</div>
-
-<div class="card-panel center">
-    <input ng-disabled="" class="waves-effect waves-light btn blue"
-           ng-click="printvoucher(user)" value="print voucher" type="submit">
+    </div>
 </div>
