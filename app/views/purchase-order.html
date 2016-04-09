@@ -32,9 +32,8 @@
                         </select>
                     </div>
                     <div class="input-field col l4">
-                        <span class="badge">
-                        <h6><strong>Rate/<small>item</small> = rs. {{ forms.user.item.rate }}</strong></h6>
-                        </span>
+                        <label for="id_rate">Rate/item</label>
+                        <input id="id_rate" ng-model="forms.user.item.rate" fcsa-number="" name="rate" type="text"required/>
                     </div>
                 </div>
                 <div class="row">
