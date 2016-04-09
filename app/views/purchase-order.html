@@ -1,144 +1,123 @@
-<h5 class="center blue-text">Purchase Order</h5>
-<form name="purchaseForm">
+<!-- uncomment the code to preview the user model json -->
+<!-- <pre>
+    {{ user | json }}
+</pre> -->
 
-    <div class="card-panel">
-
-        <div class="row">
-
-            <div class="col l6 m6 s12 input-field">
-                <label for="id_ref_no">Reference Number</label>
-                <input id="id_ref_no" name="ref_no" type="text" ng-model="user.ref_no" required/>
+<div class="row"> 
+    <div class="col l7">
+        <h5 class="left-align blue-text">Purchase Order</h5>
+        <form name="purchaseForm">
+            <div class="card-panel">
+                <div class="row">
+                    <div class="col l6 m6 s12 input-field">
+                        <label for="id_ref_no">Reference Number</label>
+                        <input id="id_ref_no" name="ref_no" type="text" ng-model="user.ref_no" required/>
+                    </div>
+                    <div class="col l6 m6 s12 input-field">
+                        <label for="id_date">Date</label>
+                        <input input-date id="id_date" ng-model="user.date" name="date" type="text" select-years="15" required/>
+                    </div>
+                </div>
+                <div class="input-field">
+                    <select name="debtor" ng-options="option.name for option in debtor" material-select watch ng-model="user.debtor" required>
+                        <option value="" disabled selected>Debtor</option>
+                    </select>
+                </div>
             </div>
-
-            <div class="col l6 m6 s12 input-field">
-                <label for="id_date">Date</label>
-                <input input-date id="id_date" ng-model="user.date" name="date" type="text"
-                         select-years="15" required/>
+            <div class="card-panel" ng-repeat="forms in subForms">
+                <div class="row">
+                    <div class="input-field col l8 m8 s7">
+                        <select name="item_name" material-select ng-options="options.name for options in forms.form.itemName" watch ng-model="forms.user.item" required>
+                            <option value="" disabled selected>Item Name</option>
+                        </select>
+                    </div>
+                    <div class="input-field col l4">
+                        <span class="badge">
+                        <h6><strong>Rate/<small>item</small> = rs. {{ forms.user.item.rate }}</strong></h6>
+                        </span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col l6 m4 s5">
+                        <label for="id_item_qty">Item quantity</label>
+                        <input id="id_item_qty" name="item_qty" type="text" fcsa-number="" ng-model="forms.user.item_qty" required/>
+                    </div>
+                    <div class="input-field col l6 m6 s12">
+                        <label for="id_item_unit">Unit</label>
+                        <input id="id_item_unit" name="item_unit" type="text" fcsa-number="" ng-model="forms.user.item_unit" required/>
+                    </div>
+                </div>
+                <div class="input-field">
+                    <select name="godown_name" ng-options="option for option in user.debtor.godown" material-select watch ng-model="forms.user.go_site" required>
+                        <option value="" disabled selected>Godown site</option>
+                    </select>
+                </div>
+                <div class="row">
+                    <div class="col l6 m6 s12 input-field">
+                        <label for="id_due_on_date">Due on date</label>
+                        <input input-date id="id_due_on_date" ng-model="forms.user.due_on_date" name="date" type="text" select-years="15" required/>
+                    </div>
+                    <div class="col l6 m6 s12 input-field">
+                        <label for="id_payment_date">purchase date</label>
+                        <input input-date id="id_payment_date" ng-model="forms.user.payment_date" name="date" type="text" select-years="15" required/>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col l12 m12 s12">
+                        <label for="id_narrator">Narrator</label>
+                        <input id="id_narrator" name="narrator" ng-model="forms.user.narrator" type="text">
+                    </div>
+                </div>
+                <div class="right-align">
+                    <input ng-disabled="purchaseForm.$invalid || (!forms.form.isEditable && forms.form.isSubmitted)" 
+                           class="waves-effect waves-light btn blue" 
+                           ng-click="maintainPurchase(forms.formNo)" value="add new item" type="submit">
+                </div>
             </div>
-
+        </form>
+        <div class="card-panel right-align">
+            <input ng-disabled="!user.subFormDetails.length" class="waves-effect waves-light btn blue"
+                   ng-click="" value="Submit" type="submit">
         </div>
-
-        <div class="input-field">
-            <select name="debtor" ng-options="option.name for option in debtor"
-                       material-select watch ng-model="user.debtor" required>
-                <option value="" disabled selected>Debtor</option>
-            </select>
-        </div>
-
     </div>
 
-    <div class="card-panel" ng-repeat="forms in subForms" ng-show="!forms.form.isSubmitted">
-
-        <div class="right-align" ng-show="forms.user.item">
-            <div class="chip">
-                <h6><strong>Rate/<small>item</small> = rs. {{ forms.user.item.rate }}</strong></h6>
+    <div class="col l5">
+        <h5 class="blue-text">Summary</h5>
+        <div class="card-panel" id="summary">
+            <table class="highlight">
+                <thead>
+                    <tr>
+                        <th data-field="CR-DR"></th>
+                        <th data-field="LEDGER">LEDGER A/C</th>
+                        <th data-field="AMOUNT" colspan="2">AMOUNT</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td>CR.</td>
+                        <td>DR.</td>
+                    </tr>
+                    <tr>
+                        <td>CR.</td>
+                        <td></td>
+                        <td>{{ total }}</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>DR.</td>
+                        <td></td>
+                        <td></td>
+                        <td>{{ total }}</td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="right-align">
+                <div class="chip">
+                    <h6><b>TOTAL = {{ total }}</b></h6>
+                </div>
             </div>
-        </div>
-
-        <div class="input-field">
-            <select name="item_name" material-select ng-options="options.name for options in forms.form.itemName"
-                       watch ng-model="forms.user.item" required>
-                <option value="" disabled selected>Item Name</option>
-            </select>
-        </div>
-
-        <div class="row">
-
-            <div class="input-field col l6 m12 s12">
-                <label for="id_item_qty">Item quantity</label>
-                <input id="id_item_qty" name="item_qty" type="text"
-                         fcsa-number="" ng-model="forms.user.item_qty" required/>
-            </div>
-
-            <div class="input-field col l6 m6 s12">
-                <label for="id_item_unit">Unit</label>
-                <input id="id_item_unit" name="item_unit" type="text"
-                         fcsa-number="" ng-model="forms.user.item_unit" required/>
-            </div>
-
-        </div>
-        <div class="input-field">
-            <select name="godown_name" ng-options="option for option in user.debtor.godown"
-                       material-select watch ng-model="forms.user.go_site" required>
-                <option value="" disabled selected>Godown site</option>
-            </select>
-        </div>
-
-        <div class="row">
-
-            <div class="col l6 m6 s12 input-field">
-                <label for="id_due_on_date">Due on date</label>
-                <input input-date id="id_due_on_date" ng-model="forms.user.due_on_date"
-                         name="date" type="text" select-years="15" required/>
-            </div>
-
-            <div class="col l6 m6 s12 input-field">
-                <label for="id_payment_date">purchase date</label>
-                <input input-date id="id_payment_date" ng-model="forms.user.payment_date"
-                         name="date" type="text" select-years="15" required/>
-            </div>
-
-        </div>
-
-        <div class="row">
-
-            <div class="input-field col l12 m12 s12">
-                <label for="id_narrator">Narrator</label>
-                <input id="id_narrator" name="narrator" ng-model="forms.user.narrator" type="text">
-            </div>
-
-        </div>
-
-
-        <div class="right-align">
-            <input ng-disabled="purchaseForm.$invalid" class="waves-effect waves-light btn blue"
-                   ng-click="maintainPurchase(forms.formNo)" value="save Your purchase" type="submit">
-        </div>
-
-    </div>
-</form>
-
-<div class="card-panel">
-    <h5 class="right-align">SUMMARY</h5>
-
-    <table class="highlight">
-        <thead>
-            <tr>
-                <th data-field="CR-DR"></th>
-                <th data-field="LEDGER">LEDGER A/C</th>
-                <th data-field="AMOUNT" colspan="2">AMOUNT</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td></td>
-                <td></td>
-                <td><b>CR.</b></td>
-                <td><b>DR.</b></td>
-            </tr>
-            <tr>
-                <td><b>CR.</b></td>
-                <td></td>
-                <td>{{ total }}</td>
-                <td></td>
-            </tr>
-            <tr>
-                <td><b>DR.</b></td>
-                <td></td>
-                <td></td>
-                <td>{{ total }}</td>
-            </tr>
-        </tbody>
-    </table>
-
-    <div class="right-align">
-        <div class="chip">
-            <h6><b>TOTAL = {{ total }}</b></h6>
         </div>
     </div>
-</div>
-
-<div class="card-panel center">
-    <input ng-disabled="!user.subFormDetails.length" class="waves-effect waves-light btn blue"
-             ng-click="" value="Submit this data" type="submit">
 </div>

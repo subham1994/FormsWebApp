@@ -21,7 +21,7 @@
         $scope.user = {};
         $scope.user.subFormDetails = [];
         $scope.total = 0;
-        $scope.subForms = [{form: subForm, user: {}, formNo: 0}];
+        $scope.subForms = [{form: subForm, user: {item: subForm.itemName[0]}, formNo: 0}];
 
         var getRequiredForm = function(formNo) {
             for(var i= 0, len=$scope.subForms.length; i<len; i++) {
@@ -38,17 +38,17 @@
             formObj.form.isSubmitted = true;
 
             $scope.subForms.push({
-                    form: {
-                        itemName: [
-                            {id: 1, name: 'Dummy Item 1', rate: 200},
-                            {id: 2, name: 'Dummy Item 2', rate: 500},
-                            {id: 3, name: 'Dummy Item 3', rate: 1500}
-                        ],
-                        isEditable: true,
-                        isSubmitted: false
-                    },
-                    user: {},
-                    formNo: ++formNo
+                form: {
+                    itemName: [
+                        {id: 1, name: 'Dummy Item 1', rate: 200},
+                        {id: 2, name: 'Dummy Item 2', rate: 500},
+                        {id: 3, name: 'Dummy Item 3', rate: 1500}
+                    ],
+                    isEditable: true,
+                    isSubmitted: false
+                },
+                user: {item: subForm.itemName[0]},
+                formNo: ++formNo
             });
 
             $scope.total += (parseInt(formObj.user.item.rate) * parseInt(formObj.user.item_unit) * parseInt(formObj.user.item_qty));
