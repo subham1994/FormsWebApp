@@ -7,6 +7,7 @@
     var paymentVoucher = function($scope, $location) {
         $scope.search = {};
         $scope.user = {};
+        $scope.user.amount = 0;
         $scope.searchResults = [
             {id: 1, ref_no: "ra", vendor: "Vendor A", items: "item A", qty: "2", tot_amt: "5500"},
             {id: 2, ref_no: "rb", vendor: "Vendor B", items: "item B", qty: "1", tot_amt: "500"},

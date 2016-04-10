@@ -90,10 +90,9 @@
             </div>
 
         </div>
-
+        <h5 class="blue-text" ng-show="showPayment">Payment voucher</h5>
         <div class="card-panel" ng-show="showPayment">
-            <h5 class="right-align">Payment voucher</h5>
-
+            
             <form name="paymentForm">
                 <div class="row">
 
@@ -143,7 +142,40 @@
     <div class="col l5">
         <h5 class="blue-text">Summary</h5>
         <div class="card-panel">
-            <b>same as previous...</b>
+            <table class="highlight">
+                <thead>
+                    <tr>
+                        <th data-field="CR-DR"></th>
+                        <th data-field="LEDGER">LEDGER A/C</th>
+                        <th data-field="AMOUNT" colspan="2">AMOUNT</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td>CR.</td>
+                        <td>DR.</td>
+                    </tr>
+                    <tr>
+                        <td>CR.</td>
+                        <td></td>
+                        <td>{{ user.amount }}</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>DR.</td>
+                        <td></td>
+                        <td></td>
+                        <td>{{ user.amount }}</td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="right-align">
+                <div class="chip">
+                    <h6><b>TOTAL = {{ user.amount }}</b></h6>
+                </div>
+            </div>
         </div>
     </div>
 </div>

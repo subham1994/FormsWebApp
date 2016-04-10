@@ -4,7 +4,6 @@
     var asideCtrl = function($scope, progressInfoFactory) {
 
         function initScope() {
-            alert("i was called")
             $scope.tab = 1;
             $scope.tabs = progressInfoFactory.getPath();
             $scope.fullPage = "false";
