@@ -5,7 +5,6 @@
 
 (function() {
     var paymentVoucher = function($scope, $location) {
-        $scope.search = {};
         $scope.user = {};
         $scope.user.amount = 0;
         $scope.searchResults = [
