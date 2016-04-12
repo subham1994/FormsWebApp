@@ -36,7 +36,7 @@
         }
 
         $scope.submitPurchase = function(user) {
-            $location.path("/confirm");
+            $location.path("/");
         }
 
     };

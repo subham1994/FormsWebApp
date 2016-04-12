@@ -2,6 +2,15 @@
 (function() {
     var app = angular.module('FormsApp', ['ngRoute', 'ui.materialize', 'fcsa-number']);
 
+    app.run(function($rootScope, $window) {
+        $rootScope.$on('$routeChangeSuccess', function () {
+            if (document.readyState == 'complete') {
+                $window.scrollTo(0, 0);
+                clearInterval(interval);
+            }
+        });
+    });
+
     app.config(function($routeProvider) {
         $routeProvider
             .when('/', {
