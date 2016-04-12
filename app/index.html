@@ -6,57 +6,58 @@
         <title>Startup dummy website</title>
         <link rel="stylesheet" href="static/css/materialize.min.css" type="text/css">
         <link rel="stylesheet" href="static/css/style.css" type="text/css">
-        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link rel="stylesheet" href="static/css/animate.css" type="text/css">
+        <link rel="stylesheet" href="static/css/ionicons.min.css" rel="stylesheet">
     </head>
 
     <body ng-controller="asideCtrl">
 
         <div class="navbar-fixed">
-            <nav class="white">
+            <nav>
                 <div class="container">
-                    <a href="#" class="brand-logo blue-text">FORMSAPP</a>
+                    <a href="#" class="brand-logo">FORMSAPP</a>
                 </div>
             </nav>
         </div>
 
         <div class="container" id="body-container" ng-switch on="fullPage">
-
-            <div class="row" ng-switch-when="true">
-                <div ng-view></div>
-            </div>
-
-             <div class="row" ng-switch-when="false">
+            <div class="row">
                 <div class="col l2">
-                    <ul class="section table-of-contents">
-                        <li>
-                            <a href="#/" class="collection-item" ng-class=" {active: tab === 1}" ng-click="tab = 1">
-                                Purchase Order
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#/payment" class="collection-item" ng-class=" {active: tab === 4}" ng-click="tab = 4">
-                                Payment Voucher
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#/billing" class="collection-item" ng-class=" {active: tab === 2}" ng-click="tab = 2">
-                                Billing
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#/shipping" class="collection-item" ng-class=" {active: tab === 3}" ng-click="tab = 3">
-                                Shipping
-                            </a>
-                        </li>
-                    </ul>
+                    <div class="sidemenu">
+                        <ul class="section table-of-contents">
+                            <li>
+                                <a href="#/" class="collection-item" ng-class=" {active: tab === 1}" ng-click="tab = 1">
+                                    Home
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#/purchase" class="collection-item" ng-class=" {active: tab === 2}" ng-click="tab = 2">
+                                    Purchase Order
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#/payment" class="collection-item" ng-class=" {active: tab === 3}" ng-click="tab = 3">
+                                    Payment Voucher
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#/billing" class="collection-item" ng-class=" {active: tab === 4}" ng-click="tab = 4">
+                                    Billing
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#/shipping" class="collection-item" ng-class=" {active: tab === 5}" ng-click="tab = 5">
+                                    Shipping
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
 
-                <div class="col l10">
+                <div class="col l10 push-l2" autoscroll="true">
                     <div ng-view></div>
                 </div>
-
             </div>
-            <div ng-switch-default>default</div>
         </div>
 
         <script type="text/javascript" src="static/js/jquery.js"></script>
@@ -67,10 +68,17 @@
         <script type="text/javascript" src="scripts/angular-materialize.js"></script>
         <script type="text/javascript" src="controllers/asideCtrl.js"></script>
         <script type="text/javascript" src="controllers/billingInfoController.js"></script>
+        <script type="text/javascript" src="controllers/homeController.js"></script>
         <script type="text/javascript" src="controllers/purchaseOrder.js"></script>
         <script type="text/javascript" src="controllers/shippingInfoController.js"></script>
         <script type="text/javascript" src="controllers/paymentVoucherController.js"></script>
-        <script type="text/javascript" src="services/progressInfoFactory.js"></script>
+        <script type="text/javascript" src="services/formsAppService.js"></script>
         <script type="text/javascript" src="static/js/materialize.min.js"></script>
+        <script type="text/javascript" src="static/js/wow.min.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function() {
+                new WOW().init();
+            });
+        </script>
     </body>
 </html>

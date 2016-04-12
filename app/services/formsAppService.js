@@ -1,6 +1,6 @@
 
 (function() {
-    var progressInfoFactory = function($location) {
+    var formsAppService = function($location) {
         var currentProgress = {};
 
         currentProgress.steps = [];
@@ -20,7 +20,7 @@
         return currentProgress;
     };
 
-    progressInfoFactory.$inject = ['$location'];
+    formsAppService.$inject = ['$location'];
 
-    angular.module('FormsApp').factory('progressInfoFactory', progressInfoFactory);
+    angular.module('FormsApp').factory('formsAppService', formsAppService);
 }());

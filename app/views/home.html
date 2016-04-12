@@ -1,0 +1,55 @@
+<div class="section" ng-controller="homeController as home_ctrl">
+	<div class="row">
+		<div class="col l7 m12 s12">
+			<h6 class="right-align header-text">recent activity</h6>
+			<ul class="timeline">
+				<li ng-repeat="data in home_ctrl.timelineData">
+					<i class="circle z-depth-1 ion-card" ng-if="data.formName === 'payment voucher'"></i>
+					<i class="circle z-depth-1 ion-ios-cart" ng-if="data.formName === 'purchase order'"></i>
+					<div class="card-panel left-arrow timeline-text wow animated bounceInDown" data-wow-delay="0.2s">
+						You created a <b class="timeline-highlight">{{ data.formName }}</b> of INR
+					    <b class="timeline-highlight">{{ data.amount }}</b> 
+						on <b class="timeline-highlight">{{ data.date }}</b>.
+					</div>
+				</li>
+			</ul>
+		</div>
+
+		<div class="col l5 m12 s12">
+			<div class="fixed">
+				<h6 class="right-align header-text">recent news</h6>
+				 <ul class="collection z-depth-1">
+				    <li class="collection-item avatar">
+				        <i class="large material-icons ion-ios-paper circle blue z-depth-1"></i>
+				        <span class="title news-headline">First important headline</span>
+				        <p class="news-text">Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit.. 
+				        </p>
+				        <h6 class="right-align news-title">The telegraph</h6>
+				    </li>
+				    <li class="collection-item avatar">
+				        <i class="circle purple ion-ios-paper z-depth-1"></i>
+				        <span class="title news-headline">Second important headline</span>
+				        <p class="news-text">Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit.. 
+				        </p>
+				        <h6 class="right-align news-title">The times of india</h6>
+				    </li>
+				    <li class="collection-item avatar">
+				        <i class="circle green ion-ios-paper z-depth-1"></i>
+				        <span class="title news-headline">Third important headline</span>
+				        <p class="news-text">Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit.. 
+				        </p>
+				        <h6 class="right-align news-title">The economic times</h6>
+				    </li>
+				    <li class="collection-item avatar z-depth-1">
+				        <i class="circle red z-depth-1 ion-ios-paper"></i>
+				        <span class="title news-headline">Fourth important headline</span>
+				        <p class="news-text">Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit.. 
+				        </p>
+				        <h6 class="right-align news-title">The hindu</h6>
+				    </li>
+				</ul>
+			</div>
+            
+		</div>
+	</div>
+</div>

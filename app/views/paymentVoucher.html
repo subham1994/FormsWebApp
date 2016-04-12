@@ -1,7 +1,7 @@
 <div class="row">
     <div class="col l7">
-        <h5 class="blue-text">Search</h5>
         <div class="card-panel">
+            <h6 class="right-align header-text">Search</h6>
             <form name="searchForm">
 
                 <div class="row">
@@ -50,15 +50,15 @@
                 </div>
 
                 <div class="right-align">
-                    <input ng-disabled="!search" class="waves-effect waves-light btn blue"
+                    <input ng-disabled="isEmpty(search)" class="waves-effect waves-light btn green"
                            ng-click="searchResult(search)" value="search" type="submit">
                 </div>
 
             </form>
         </div>
 
-        <h5 class="blue-text" ng-show="showResults">Search result</h5>
         <div class="card-panel" ng-show="showResults">
+            <h6 class="right-align header-text">Search result</h6>
             <table>
                 <thead>
                         <th></th>
@@ -85,14 +85,14 @@
             </table>
 
             <div class="right-align">
-                <input ng-disabled="" class="waves-effect waves-light btn blue"
+                <input ng-disabled="" class="waves-effect waves-light btn green"
                          ng-click="showPaymentForm()" value="Create Payment Voucher" type="submit">
             </div>
 
         </div>
-        <h5 class="blue-text" ng-show="showPayment">Payment voucher</h5>
+
         <div class="card-panel" ng-show="showPayment">
-            
+            <h6 class="right-align header-text">Payment voucher</h6>
             <form name="paymentForm">
                 <div class="row">
 
@@ -132,7 +132,7 @@
                 </div>
 
                 <div class="right-align">
-                    <input ng-disabled="paymentForm.$invalid" class="waves-effect waves-light btn blue"
+                    <input ng-disabled="paymentForm.$invalid" class="waves-effect waves-light btn green"
                            ng-click="submitPurchase(user)" value="submit" type="submit">
                 </div>
             </form>
@@ -140,8 +140,8 @@
     </div>
 
     <div class="col l5">
-        <h5 class="blue-text">Summary</h5>
-        <div class="card-panel">
+        <div class="card-panel fixed wow animated pulse" data-wow-delay="0.1s">
+            <h6 class="right-align header-text">SUMMARY</h6>
             <table class="highlight">
                 <thead>
                     <tr>
@@ -172,7 +172,7 @@
                 </tbody>
             </table>
             <div class="right-align">
-                <div class="chip">
+                <div class="chip custom-chip">
                     <h6><b>TOTAL = {{ user.amount }}</b></h6>
                 </div>
             </div>

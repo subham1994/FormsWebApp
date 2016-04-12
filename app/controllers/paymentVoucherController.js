@@ -24,6 +24,17 @@
             $scope.showResults = true;
         };
 
+        $scope.isEmpty = function(obj) {
+            for (var key in obj) {
+                if (obj.hasOwnProperty(key)){
+                    if(obj[key]) {
+                        return false;
+                    }
+                }
+            }
+            return true;
+        }
+
         $scope.submitPurchase = function(user) {
             $location.path("/confirm");
         }

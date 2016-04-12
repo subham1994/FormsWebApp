@@ -1,9 +1,9 @@
 
 (function() {
 
-    var billingInfoController = function($scope, $location, $route, progressInfoFactory) {
+    var billingInfoController = function($scope, $location, $route, formsAppService) {
         $scope.user = {};
-        $scope.data = progressInfoFactory.getSteps();
+        $scope.data = formsAppService.getSteps();
 
         // if user has previously entered any data, bind that data to the form model.
         for(var i= 0, len=$scope.data.length; i< len; i++) {
@@ -21,7 +21,7 @@
             }
 
             // push the object into progressInfoFactory's array.
-            progressInfoFactory.addStep({name: 'Billing Info', user: user});
+            formsAppService.addStep({name: 'Billing Info', user: user});
             // go to next step
 
             $location.path("/shipping");
@@ -30,7 +30,7 @@
     };
 
     // inject function parameters to avoid script breakdown during minification
-    billingInfoController.$inject = ['$scope', '$location','$route', 'progressInfoFactory'];
+    billingInfoController.$inject = ['$scope', '$location','$route', 'formsAppService'];
 
     // Register controller to your app
     angular.module('FormsApp').controller("billingInfoController", billingInfoController);

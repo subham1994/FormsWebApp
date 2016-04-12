@@ -4,10 +4,10 @@
 </pre> -->
 
 <div class="row"> 
-    <div class="col l7">
-        <h5 class="left-align blue-text">Purchase Order</h5>
+    <div class="col l7 m12 s12">
         <form name="purchaseForm">
             <div class="card-panel">
+                <h6 class="right-align header-text">Purchase Order</h6>
                 <div class="row">
                     <div class="col l6 m6 s12 input-field">
                         <label for="id_ref_no">Reference Number</label>
@@ -69,20 +69,20 @@
                 </div>
                 <div class="right-align">
                     <input ng-disabled="purchaseForm.$invalid || (!forms.form.isEditable && forms.form.isSubmitted)" 
-                           class="waves-effect waves-light btn blue" 
+                           class="waves-effect waves-light btn green" 
                            ng-click="maintainPurchase(forms.formNo)" value="add new item" type="submit">
                 </div>
             </div>
         </form>
         <div class="card-panel right-align">
-            <input ng-disabled="!user.subFormDetails.length" class="waves-effect waves-light btn blue"
+            <input ng-disabled="!user.subFormDetails.length" class="waves-effect waves-light btn green"
                    ng-click="" value="Submit" type="submit">
         </div>
     </div>
 
-    <div class="col l5">
-        <h5 class="blue-text">Summary</h5>
-        <div class="card-panel" id="summary">
+    <div class="col l5 m12 s12">
+        <div class="card-panel fixed wow animated pulse" data-wow-delay="0.1s">
+            <h6 class="right-align header-text">SUMMARY</h6>
             <table class="highlight">
                 <thead>
                     <tr>
@@ -113,7 +113,7 @@
                 </tbody>
             </table>
             <div class="right-align">
-                <div class="chip">
+                <div class="chip custom-chip">
                     <h6><b>TOTAL = {{ total }}</b></h6>
                 </div>
             </div>

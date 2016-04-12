@@ -2,40 +2,106 @@
     .container{
         width: 90%;
     }
+
+    .fixed {
+        width: 408px;
+        position: fixed;
+    }
+
+    .sidemenu {
+        width: 186px;
+        position: fixed;
+    }
+}
+
+@media (max-width: 993px) {
+    .container{
+        width: 90%;
+    }
 }
 
 #body-container {
-    margin-top: 50px;
+    margin-top: 25px;
+}
+
+nav {
+    background-color: #75ce66;
+}
+
+nav .brand-logo {
+    font-size: 22px;
+    font-weight: 600;
+    color: #FFF;
+}
+.header-text {
+    font-weight: 800;
+    font-size: 16px;
+    color: #75ce66;
+    text-transform: uppercase;
+}
+
+.collection .collection-item.avatar .title.news-headline {
+    font-weight: 700;
+    font-size: 13px;
+    text-transform: uppercase;
+    color: #576366;
+}
+
+.news-text {
+    font-weight: 500;
+    font-size: 12px;
+    color: #455a64;
+}
+
+.news-title {
+    font-weight: 700;
+    font-size: 11px;
+    color: #75ce66;
+    text-transform: uppercase;
+}
+
+th {
+    font-weight: 600;
+    font-size: 13px;
+    text-transform: uppercase;
+    color: #75ce66;
+}
+
+td {
+    font-weight: 500;
+    font-size: 12px;
+    color: #455a64;
 }
 
 .collection a.collection-item {
-    color: #2196F3 !important;
+    color: #4285f4 !important;
 }
 
 .collection .collection-item.active {
     color: #FFF !important;
-    background-color: #2196F3 !important;
-}
-
-.card-panel > h5 {
-    color: #2196F3 !important;
-    margin: 0%;
+    background-color: #4285f4 !important;
 }
 
 .card.preview h5 {
-    color: #2196F3 !important;
+    color: #4285f4 !important;
 }
 
 .table-of-contents a.active {
-    border-left: 2px solid #4A88CB;
+    font-weight: 500;
+    color: #75ce66;
+    border-left: 2px solid #75ce66;
+}
+
+.table-of-contents a {
+    font-weight: 500;
 }
 
 .table-of-contents a:hover {
-    border-left: 2px solid #4A88CB;
+    border-left: 2px solid #75ce66;
 }
 
 .dropdown-content li > a, .dropdown-content li > span {
-    color: #4A88CB ;
+    color: #455a64 ;
 }
 
 .card .card-action a:not(.btn):not(.btn-large):not(.btn-floating) {
@@ -78,7 +144,7 @@
 }
 
 .input-field label.active {
-    color: #4A88CB;
+    color: #75ce66;
 }
 
 input:not([type]), input[type="text"], input[type="password"],
@@ -90,8 +156,8 @@ textarea.materialize-textarea, .select-wrapper input.select-dropdown {
 }
 
 .input-field input[type=text]:focus {
-    border-bottom: 1px solid #4A88CB;
-    box-shadow: 0 1px 0 0 #4A88CB;
+    border-bottom: 1px solid #75ce66;
+    box-shadow: 0 1px 0 0 #75ce66;
 }
 
 .input-field input[type=text].ng-invalid.ng-dirty {
@@ -102,4 +168,73 @@ textarea.materialize-textarea, .select-wrapper input.select-dropdown {
 .input-field input[type=text].ng-valid.ng-dirty {
     border-bottom: 1px solid #78FA89;
     box-shadow: 0 1px 0 0 #78FA89;
+}
+
+.chip.custom-chip {
+    background-color: #75ce66;
+    color: #FFF;
+}
+
+/* timeline */
+.timeline {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    position: relative;
+}
+
+.timeline-text {
+    font-weight: 500;
+    font-size: 13px;
+    color: #455a64;
+}
+
+.timeline-highlight {
+    text-transform: uppercase;
+}
+
+.timeline li {
+    margin-top: 50px;
+}
+
+.timeline li:first-child {
+    margin-top: 8px;
+}
+
+.timeline li div {
+    margin-left: 75px;
+    margin-top: -50px;
+}
+
+.timeline li i {
+    width: 50px;
+    height: 50px;
+    color: #FFF;
+    display: block;
+    text-align: center;
+    font-size: 23px;
+    line-height: 40px;
+    border: 4px solid #FFF;
+    background-color: #75ce66;
+}
+
+.timeline li i:after {
+    content: '';
+    width: 50px;
+    height: 4px;
+    background-color: #eeeeee;
+    position: absolute;
+    margin-top: 20px;
+    z-index: -1;
+}
+
+.timeline:after {
+    content: '';
+    width: 4px;
+    height: 100%;
+    background-color: #eeeeee;
+    position: absolute;
+    top: 0px;
+    left: 24px;
+    z-index: -1;
 }

@@ -1,24 +1,27 @@
 
 (function() {
 
-    var asideCtrl = function($scope, progressInfoFactory) {
+    var asideCtrl = function($scope, formsAppService) {
 
         function initScope() {
             $scope.tab = 1;
-            $scope.tabs = progressInfoFactory.getPath();
+            $scope.tabs = formsAppService.getPath();
             $scope.fullPage = "false";
 
-            if ($scope.tabs === '/billing') {
+            if($scope.tabs === '/'){
+                $scope.tab = 1;
+            }
+            if ($scope.tabs === '/purchase') {
                 $scope.tab = 2;
             }
-            if ($scope.tabs === '/shipping') {
+            if ($scope.tabs === '/payment') {
                 $scope.tab = 3;
             }
-            if ($scope.tabs === '/payment') {
+            if ($scope.tabs === '/billing') {
                 $scope.tab = 4;
             }
-            if ($scope.tabs === '/confirm') {
-                $scope.fullPage = "true";
+            if ($scope.tabs === '/shipping') {
+                $scope.tab = 5;
             }
         }
 
@@ -29,7 +32,7 @@
     };
 
     // inject function parameters to avoid script breakdown during minification
-    asideCtrl.$inject = ['$scope', 'progressInfoFactory'];
+    asideCtrl.$inject = ['$scope', 'formsAppService'];
 
     // Register controller to your app
     angular.module('FormsApp').controller("asideCtrl", asideCtrl);

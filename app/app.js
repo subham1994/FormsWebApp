@@ -5,6 +5,10 @@
     app.config(function($routeProvider) {
         $routeProvider
             .when('/', {
+                controller: 'homeController',
+                templateUrl: 'views/home.html'
+            })
+            .when('/purchase', {
                 controller: 'purchaseOrder',
                 templateUrl: 'views/purchase-order.html'
             })
@@ -19,9 +23,6 @@
             .when('/shipping', {
                 controller: 'shippingInfoController',
                 templateUrl: 'views/shipping-info-form.html'
-            })
-            .when('/confirm', {
-                templateUrl: 'views/confirmation.html'
             })
             .otherwise( {redirectTo: '/'} );
     });
