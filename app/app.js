@@ -6,7 +6,6 @@
         $rootScope.$on('$routeChangeSuccess', function () {
             if (document.readyState == 'complete') {
                 $window.scrollTo(0, 0);
-                clearInterval(interval);
             }
         });
     });
