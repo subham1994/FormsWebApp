@@ -1,3 +1,7 @@
+:root {
+  --main-bg-color: rgb(255,64,129);
+}
+
 @media (min-width: 993px) {
     .container{
         width: 90%;
@@ -25,7 +29,7 @@
 }
 
 nav {
-    background-color: #6071C3;
+    background-color: var(--main-bg-color);
 }
 
 nav .brand-logo {
@@ -36,7 +40,7 @@ nav .brand-logo {
 .header-text {
     font-weight: 800;
     font-size: 16px;
-    color: #6071C3;
+    color: var(--main-bg-color);
     text-transform: uppercase;
 }
 
@@ -56,7 +60,7 @@ nav .brand-logo {
 .news-title {
     font-weight: 700;
     font-size: 11px;
-    color: #6071C3;
+    color: var(--main-bg-color);
     text-transform: uppercase;
 }
 
@@ -64,7 +68,7 @@ th {
     font-weight: 600;
     font-size: 13px;
     text-transform: uppercase;
-    color: #6071C3;
+    color: var(--main-bg-color);
 }
 
 td {
@@ -87,13 +91,13 @@ td {
 }
 
 .table-of-contents a:hover {
-    border-left: 2px solid #75ce66;
+    border-left: 2px solid var(--main-bg-color);
 }
 
 .table-of-contents a.active {
     font-weight: 500;
     color: #6071C3;
-    border-left: 2px solid #6071C3;
+    border-left: 2px solid var(--main-bg-color);
 }
 
 .table-of-contents a {
@@ -144,7 +148,7 @@ td {
 }
 
 .input-field label.active {
-    color: #75ce66;
+    color: var(--main-bg-color);
 }
 
 input:not([type]), input[type="text"], input[type="password"],
@@ -156,8 +160,8 @@ textarea.materialize-textarea, .select-wrapper input.select-dropdown {
 }
 
 .input-field input[type=text]:focus {
-    border-bottom: 1px solid #75ce66;
-    box-shadow: 0 1px 0 0 #75ce66;
+    border-bottom: 1px solid var(--main-bg-color);
+    box-shadow: 0 1px 0 0 var(--main-bg-color);
 }
 
 .input-field input[type=text].ng-invalid.ng-dirty {
@@ -171,7 +175,7 @@ textarea.materialize-textarea, .select-wrapper input.select-dropdown {
 }
 
 .chip.custom-chip {
-    background-color: #75ce66;
+    background-color: var(--main-bg-color);
     color: #FFF;
 }
 
@@ -215,7 +219,7 @@ textarea.materialize-textarea, .select-wrapper input.select-dropdown {
     font-size: 23px;
     line-height: 45px;
     border: 4px solid #FFF;
-    background-color: #75ce66;
+    background-color: var(--main-bg-color);
 }
 
 .timeline li i:after {
