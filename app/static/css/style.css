@@ -77,15 +77,6 @@ td {
     color: #455a64;
 }
 
-.collection a.collection-item {
-    color: #4285f4 !important;
-}
-
-.collection .collection-item.active {
-    color: #FFF !important;
-    background-color: #4285f4 !important;
-}
-
 .card.preview h5 {
     color: #4285f4 !important;
 }
@@ -96,7 +87,7 @@ td {
 
 .table-of-contents a.active {
     font-weight: 500;
-    color: #6071C3;
+    color: var(--main-bg-color);
     border-left: 2px solid var(--main-bg-color);
 }
 
@@ -106,22 +97,6 @@ td {
 
 .dropdown-content li > a, .dropdown-content li > span {
     color: #455a64 ;
-}
-
-.card .card-action a:not(.btn):not(.btn-large):not(.btn-floating) {
-    color: #61C5C7;
-}
-
-.card .card-action a:not(.btn):not(.btn-large):not(.btn-floating):hover {
-    color: #2196F3;
-}
-
-.card.preview .card-action a:not(.btn):not(.btn-large):not(.btn-floating) {
-    color: #F44336 !important;
-}
-
-.card.preview .card-action a:not(.btn):not(.btn-large):not(.btn-floating):hover {
-    color: #e53935;
 }
 
 .wrap {
@@ -147,7 +122,14 @@ td {
     display: block;
 }
 
+.input-field label {
+    font-weight: 600;
+    font-size: 14px;
+}
+
 .input-field label.active {
+    font-weight: 600;
+    font-size: 14px;    
     color: var(--main-bg-color);
 }
 
@@ -162,6 +144,11 @@ textarea.materialize-textarea, .select-wrapper input.select-dropdown {
 .input-field input[type=text]:focus {
     border-bottom: 1px solid var(--main-bg-color);
     box-shadow: 0 1px 0 0 var(--main-bg-color);
+}
+
+.input-field input[type="password"]:focus {
+    border-bottom: 1px solid #4285f4;
+    box-shadow: 0 1px 0 0 #4285f4;
 }
 
 .input-field input[type=text].ng-invalid.ng-dirty {

@@ -17,12 +17,6 @@
             if ($scope.tabs === '/payment') {
                 $scope.tab = 3;
             }
-            if ($scope.tabs === '/billing') {
-                $scope.tab = 4;
-            }
-            if ($scope.tabs === '/shipping') {
-                $scope.tab = 5;
-            }
         }
 
         initScope();
