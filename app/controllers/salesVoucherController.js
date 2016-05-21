@@ -1,7 +1,7 @@
 (function() {
-    var personalInfoController = function($scope, $location) {
+    var salesVoucherController = function($scope, $location) {
 
-        $scope.debtor = [
+        $scope.customer = [
             {id: 1, name: 'Arpan Ahuja', godown: ['Patna', 'Delhi', 'Mumbai']},
             {id: 2, name: 'Nishant Gaurav', godown: ['Bangalore', 'Hyderabad', 'Chennai']},
             {id: 3, name: 'Subham Gaurav', godown: ['Nagpur', 'Bhopal', 'Kolkata']},
@@ -61,9 +61,9 @@
     };
 
     // inject function parameters to avoid script breakdown during minification
-    personalInfoController.$inject = ['$scope', '$location'];
+    salesVoucherController.$inject = ['$scope', '$location'];
 
     // Register controller to your app
-    angular.module('FormsApp').controller("purchaseOrder", personalInfoController);
+    angular.module('FormsApp').controller("salesVoucherController", salesVoucherController);
 
 }());

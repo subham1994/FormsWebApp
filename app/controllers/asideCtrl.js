@@ -17,6 +17,9 @@
             if ($scope.tabs === '/payment') {
                 $scope.tab = 3;
             }
+            if ($scope.tabs === '/sales') {
+                $scope.tab = 4;
+            }
         }
 
         initScope();

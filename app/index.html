@@ -15,7 +15,7 @@
         <div class="navbar-fixed">
             <nav>
                 <div class="container">
-                    <a href="#" class="brand-logo">FORMSAPP</a>
+                    <a href="#/" class="brand-logo">FORMSAPP</a>
                 </div>
             </nav>
         </div>
@@ -40,6 +40,11 @@
                                     Payment Voucher
                                 </a>
                             </li>
+                            <li>
+                                <a href="#/sales" class="collection-item" ng-class=" {active: tab === 4}" ng-click="tab = 4">
+                                    Sales Voucher
+                                </a>
+                            </li>
                         </ul>
                     </div>
                 </div>
@@ -59,11 +64,10 @@
         <script type="text/javascript" src="app.js"></script>
         <script type="text/javascript" src="scripts/angular-materialize.js"></script>
         <script type="text/javascript" src="controllers/asideCtrl.js"></script>
-        <script type="text/javascript" src="controllers/billingInfoController.js"></script>
         <script type="text/javascript" src="controllers/homeController.js"></script>
         <script type="text/javascript" src="controllers/purchaseOrder.js"></script>
-        <script type="text/javascript" src="controllers/shippingInfoController.js"></script>
         <script type="text/javascript" src="controllers/paymentVoucherController.js"></script>
+        <script type="text/javascript" src="controllers/salesVoucherController.js"></script>
         <script type="text/javascript" src="services/formsAppService.js"></script>
         <script type="text/javascript" src="static/js/materialize.min.js"></script>
         <script type="text/javascript" src="static/js/wow.min.js"></script>

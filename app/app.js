@@ -10,7 +10,7 @@
         });
     });
 
-    app.config(function($routeProvider) {
+    app.config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
         $routeProvider
             .when('/', {
                 controller: 'homeController',
@@ -20,18 +20,16 @@
                 controller: 'purchaseOrder',
                 templateUrl: 'views/purchase-order.html'
             })
-            .when('/billing', {
-                controller: 'billingInfoController',
-                templateUrl: 'views/billing-info-form.html'
-            })
             .when('/payment', {
                 controller: 'paymentVoucherController',
                 templateUrl: 'views/paymentVoucher.html'
             })
-            .when('/shipping', {
-                controller: 'shippingInfoController',
-                templateUrl: 'views/shipping-info-form.html'
+            .when('/sales', {
+                controller: 'salesVoucherController',
+                templateUrl: 'views/salesVoucher.html'
             })
             .otherwise( {redirectTo: '/'} );
-    });
+
+        // $locationProvider.html5Mode({ enabled: true, requireBase: false });
+    }]);
 }());
