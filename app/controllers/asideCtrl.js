@@ -20,6 +20,9 @@
             if ($scope.tabs === '/sales') {
                 $scope.tab = 4;
             }
+            if ($scope.tabs === '/reciept') {
+                $scope.tab = 5;
+            }
         }
 
         initScope();

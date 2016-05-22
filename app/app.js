@@ -28,6 +28,10 @@
                 controller: 'salesVoucherController',
                 templateUrl: 'views/salesVoucher.html'
             })
+            .when('/reciept', {
+                controller: 'recieptVoucherController',
+                templateUrl: 'views/recieptVoucher.html'
+            })
             .otherwise( {redirectTo: '/'} );
 
         // $locationProvider.html5Mode({ enabled: true, requireBase: false });
