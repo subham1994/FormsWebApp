@@ -1,5 +1,11 @@
 (function() {
     var recieptVoucher = function($scope, $location) {
+
+        // Not tested for all the browsers (Tested browsers : chrome)
+        window.onbeforeunload = function() {
+            return 'You have a uncompleted form. Do you still want to leave this page?';
+        }
+
         $scope.user = {};
         $scope.user.amount = 0;
         $scope.searchResults = [
