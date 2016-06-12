@@ -1,11 +1,17 @@
 (function() {
     var salesVoucherController = function($scope, $location) {
 
+        // Not tested for all the browsers (Tested browsers : chrome)
+        window.onbeforeunload = function() {
+            return 'You have a uncompleted form. Do you still want to leave this page?';
+        }
+
         $scope.customer = [
             {id: 1, name: 'Arpan Ahuja', godown: ['Patna', 'Delhi', 'Mumbai']},
-            {id: 2, name: 'Nishant Gaurav', godown: ['Bangalore', 'Hyderabad', 'Chennai']},
+            {id: 2, name: 'Vinayak Anand', godown: ['Bangalore', 'Hyderabad', 'Chennai']},
             {id: 3, name: 'Subham Gaurav', godown: ['Nagpur', 'Bhopal', 'Kolkata']},
-            {id: 4, name: 'Keshav Ratan', godown: ['Ranchi', 'Patna', 'Mumbai']}
+            {id: 4, name: 'Keshav Ratan', godown: ['Ranchi', 'Patna', 'Mumbai']},
+            {id: 5, name: 'Nishant Gaurav', godown: ['Kolkata', 'Bengaluru', 'Patna']}
         ];
         var subForm = {
             itemName: [

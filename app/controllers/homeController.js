@@ -1,6 +1,10 @@
 (function() {
 
     var homeController = function() {
+
+        // This page does not have any form, does not a dialog at page exit
+        window.onbeforeunload = null;
+
         var self = this;
         self.timelineData = [
             {

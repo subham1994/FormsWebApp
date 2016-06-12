@@ -3,6 +3,9 @@
 
     var asideCtrl = function($scope, formsAppService) {
 
+        // This page does not have any form, does not a dialog at page exit
+        window.onbeforeunload = null;
+
         function initScope() {
             $scope.tab = 1;
             $scope.tabs = formsAppService.getPath();
