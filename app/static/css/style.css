@@ -97,6 +97,8 @@ td {
 
 .dropdown-content li > a, .dropdown-content li > span {
     color: #455a64 ;
+    font-weight: 500;
+    font-size: 13px;
 }
 
 .wrap {
@@ -241,4 +243,30 @@ textarea.materialize-textarea, .select-wrapper input.select-dropdown {
     top: 0px;
     left: 24px;
     z-index: -1;
+}
+
+.dropdown-content > .collection-header {
+    font-weight: 700;
+    font-size: 13px;
+    color: var(--main-bg-color);
+    text-transform: uppercase;
+}
+
+.modal-close.close-modal {
+    position: fixed;
+    top: 7px;
+    right: 7px;
+    color: black;
+    font-weight: 600;
+    font-size: 12px;
+}
+
+.chip {
+    text-align: center;
+    font-weight: 600;
+    font-size: 13px;
+    color: #FFF;
+    background: var(--main-bg-color);
+    border-radius: 2px;
+    text-transform: uppercase;
 }
