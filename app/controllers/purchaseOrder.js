@@ -1,10 +1,12 @@
 (function() {
-    var personalInfoController = function ($scope, $location, $window) {
+    var personalInfoController = function ($scope, $location, $window, $http) {
 
         // Not tested for all the browsers (Tested browsers : chrome)
         window.onbeforeunload = function() {
             return 'You have a uncompleted form. Do you still want to leave this page?';
         }
+
+        /**************** Dummy data ****************/
 
         $scope.debtor = [
             {id: 1, name: 'Arpan Ahuja', godown: ['Patna', 'Delhi', 'Mumbai']},
@@ -30,6 +32,8 @@
             {id: 4, name: 'Keshav Ratan', godown: ['Ranchi', 'Patna', 'Mumbai']}
         ];
 
+        /**************** Dummy data ****************/
+
         $scope.user = {
             subFormDetails: []
         };
@@ -51,15 +55,7 @@
             formObj.form.isSubmitted = true;
 
             $scope.subForms.push({
-                form: {
-                    itemName: [
-                        { id: 1, name: 'Dummy Item 1', rate: 200, unit: 'kg' },
-                        { id: 2, name: 'Dummy Item 2', rate: 500, unit: 'kg' },
-                        { id: 3, name: 'Dummy Item 3', rate: 1500, unit: 'kg' }
-                    ],
-                    isEditable: true,
-                    isSubmitted: false
-                },
+                form: subForm,
                 user: {item: subForm.itemName[0]},
                 formNo: ++formNo
             });
@@ -98,12 +94,18 @@
 
         $scope.submitPayment = function (user) {
             $location.path("/");
+            $http
+                // TODO : pass on the correct request
+                .post('/submitPurchaseVoucher', {a: 'a from angular', b: 'b from angular'})
+                .then(function() {
+                console.log('Request went through');
+            }, undefined);
         };
 
         $scope.fetchResults = function (keyword) {
             $scope.searchResults = [];
             subForm.itemName.forEach(function (item) {
-                if (item.name.toLowerCase().indexOf(keyword.toLowerCase()) >= 0) {
+                if (keyword && item.name.toLowerCase().indexOf(keyword.toLowerCase()) >= 0) {
                     $scope.searchResults.push(item);
                 }
             });
@@ -117,7 +119,7 @@
     };
 
     // inject function parameters to avoid script breakdown during minification
-    personalInfoController.$inject = ['$scope', '$location', '$window'];
+    personalInfoController.$inject = ['$scope', '$location', '$window', '$http'];
 
     // Register controller to your app
     angular.module('FormsApp').controller("purchaseOrder", personalInfoController);

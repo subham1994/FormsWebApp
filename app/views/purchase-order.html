@@ -9,22 +9,44 @@
         <form name="purchaseForm" autocomplete="off" novalidate>
 
             <div class="card-panel">
-                <h6 class="right-align header-text">Purchase Voucher</h6>
+                <h6 class="right-align header-text">
+                    Purchase Voucher
+                </h6>
+
                 <div class="row">
                     <div class="col l6 m6 s12 input-field">
-                        <label for="id_ref_no">Reference Number</label>
-                        <input id="id_ref_no" name="ref_no" type="text" ng-model="user.ref_no" required/>
+                        <label for="id_ref_no">
+                            Reference Number
+                        </label>
+                        <input id="id_ref_no"
+                               name="ref_no"
+                               type="text"
+                               ng-model="user.ref_no"
+                               required/>
                     </div>
                     <div class="col l6 m6 s12 input-field">
-                        <label for="id_date">Date</label>
-                        <input input-date id="id_date" ng-model="user.date" name="date"
-                               type="text" select-years="15" required/>
+                        <label for="id_date">
+                            Date
+                        </label>
+                        <input input-date id="id_date"
+                               ng-model="user.date"
+                               name="date"
+                               type="text"
+                               select-years="15"
+                               required/>
                     </div>
                 </div>
-                <div class="input-field">
-                    <select name="debtor" ng-options="option.name for option in debtor"
-                            material-select watch ng-model="user.debtor" required>
-                        <option value="" disabled selected>Debtor</option>
+
+                <div class='input-field'>
+                    <select name='debtor'
+                            ng-options='option.name for option in debtor'
+                            material-select
+                            watch
+                            ng-model='user.debtor'
+                            required>
+                        <option value=''
+                                disabled
+                                selected>Debtor</option>
                     </select>
                 </div>
             </div>
@@ -34,14 +56,27 @@
 
                 <div class="row">
                     <div class="input-field col l12 m12 s12">
-                        <label for="id_item">Item</label>
-                        <input id="id_item" ng-model="forms.user.item.name" name="rate" type="text"
-                               data-activates='search-result-dropdown' dropdown data-beloworigin="true"
-                               ng-keyup="fetchResults(forms.user.item.name)" required/>
-                        <ul id='search-result-dropdown' class='dropdown-content collection with-header' ng-show="forms.user.item.name">
-                            <li class="collection-header">search results</li>
+                        <label for="id_item">
+                            Item
+                        </label>
+                        <input id="id_item"
+                               ng-model="forms.user.item.name"
+                               type="text"
+                               data-activates='search-result-dropdown'
+                               dropdown
+                               data-beloworigin='true'
+                               ng-keyup='fetchResults(forms.user.item.name)'
+                               required/>
+                        <ul id='search-result-dropdown'
+                            class='dropdown-content collection with-header'
+                            ng-show='forms.user.item.name'>
+                            <li class='collection-header'>
+                                search results
+                            </li>
                             <li ng-repeat="options in searchResults">
-                                <a ng-click="selectItem(forms.formNo, options.id)">{{ options.name }}</a>
+                                <a ng-click="selectItem(forms.formNo, options.id)">
+                                    {{ options.name }}
+                                </a>
                             </li>
                             <li class="divider"></li>
                             <li>
@@ -52,35 +87,7 @@
                         </ul>
 
                         <!--Add new item modal-->
-                        <div id="add-item-modal" class="modal">
-                            <a class="modal-close close-modal">&#10006</a>
-                            <div class="modal-content">
-                                <h6 class="right-align header-text">Add new item</h6>
-                                <div class="row">
-                                    <div class="col l12 m12 s12 input-field">
-                                        <label for="id_new_item">Item name</label>
-                                        <input id="id_new_item" name="new-item" type="text" ng-model="user.newItem" required/>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col l6 m6 s12 input-field">
-                                        <label for="id_new_item_rate">Rate</label>
-                                        <input id="id_new_item_rate" name="new-item-rate" type="text"
-                                               fcsa-number="" ng-model="user.newItemRate" required/>
-                                    </div>
-                                    <div class="col l6 m6 s12 input-field">
-                                        <label for="id_new_item_unit">unit</label>
-                                        <input id="id_new_item_unit" name="new-item-unit" type="text" ng-model="user.newItemUnit" required/>
-                                    </div>
-                                </div>
-
-                                <div class="right-align">
-                                    <input class="modal-close btn btn-flat waves-effect waves-light blue"
-                                           ng-disabled="isAddNewItemFormValid(user)" value="Add item"
-                                           ng-click="addNewItem(forms.formNo, user)" type="submit"/>
-                                </div>
-                            </div>
-                        </div>
+                        <ng-include src="'views/item-modal.html'"></ng-include>
                     </div>
 
                 </div>
