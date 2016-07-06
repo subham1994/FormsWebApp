@@ -1,5 +1,5 @@
 (function() {
-    var personalInfoController = function ($scope, $location, $window, $http) {
+    var personalInfoController = function ($scope, $location, $http) {
 
         // Not tested for all the browsers (Tested browsers : chrome)
         window.onbeforeunload = function() {
@@ -114,12 +114,10 @@
         $scope.onExit = function () {
             return ('bye bye');
         };
-
-        // $window.onbeforeunload = $scope.onExit;
     };
 
     // inject function parameters to avoid script breakdown during minification
-    personalInfoController.$inject = ['$scope', '$location', '$window', '$http'];
+    personalInfoController.$inject = ['$scope', '$location', '$http'];
 
     // Register controller to your app
     angular.module('FormsApp').controller("purchaseOrder", personalInfoController);
